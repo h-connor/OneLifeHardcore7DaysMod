@@ -1,0 +1,32 @@
+<configs>
+
+	<!-- Enforce backpack deletion -->
+	<set xpath="/entity_classes/entity_class[@name='Backpack']/property[@name='TimeStayAfterDeath']/@value">0</set>
+	
+	<!-- Inv slots -->
+	<!--
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='CarryCapacity']/@value">23</set>
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='BagSize']/@value">54</set>
+	
+	<!-- def -->
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='ExpDeficitPerDeathPercentage']/@value">0</set>
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='ExpDeficitMaxPercentage']/@value">0</set>
+	
+	<!-- respawn stats -->
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/triggered_effect[@buff='buffStatusCheck01,buffStatusCheck02,buffPerkAbilityUpdate,buffNearDeathTraumaTrigger,buffDeathFoodDrinkAdjust']/@buff">buffStatusCheck01</set>
+	-->
+	
+	<!-- Misc balancing -->
+	<set xpath="/entity_classes/entity_class[@name='animalBear']/effect_group[@name='Base Effects']/passive_effect[@name='HealthMax' and @operation='base_set']/@value">1280</set>
+	<set xpath="/entity_classes/entity_class[@name='animalZombieBear']/effect_group[@name='Base Effects']/passive_effect[@name='HealthMax' and @operation='base_set']/@value">1400</set>
+	
+	<append xpath="/entity_classes/entity_class[@name='playerMale']">
+		<effect_group>
+			<triggered_effect trigger="onSelfRespawn" action="ModifyStats" stat="HealthMax" target="self" operation="set" value="100"/>
+			<triggered_effect trigger="onSelfRespawn" action="ModifyStats" stat="FoodMax" target="self" operation="set" value="100"/>
+			<triggered_effect trigger="onSelfRespawn" action="ModifyStats" stat="WaterMax" target="self" operation="set" value="100"/>
+			<triggered_effect trigger="onSelfRespawn" action="ModifyStats" stat="StaminaMax"  target="self" operation="set" value="100"/>
+		</effect_group>
+	</append>
+	
+</configs>

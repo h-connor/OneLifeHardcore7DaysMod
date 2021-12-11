@@ -1,0 +1,43 @@
+<configs>
+	<!-- Add to the buff that does a status check, when first started, so it's always run -->
+	<!--<insertBefore xpath="/buffs/buff[@name='buffStatusCheck01']/effect_group[position()=1]/triggered_effect[position()=1]">-->
+	<!-- -->
+	<append xpath="/buffs">
+		<!-- Start buff to reset skill points and books read on death
+		<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="resetEverythingOnEnter">
+			<requirement name="NotHasBuff" target="self" buff="resetEverythingOnEnter" />
+		</triggered_effect>
+		<triggered_effect trigger="onSelfRespawn" action="AddBuff" buff="resetEverythingOnDeath">
+			<requirement name="NotHasBuff" target="self" buff="resetEverythingOnDeath" />
+		</triggered_effect>
+	</append> -->
+	<!--</insertBefore>-->
+	<append xpath="/buffs">
+		<!-- Reset skill points and books read on death -->
+		<buff name="resetEverythingOnEnter" hidden="false" remove_on_death="false" icon='ui_game_symbol_mining'>
+			<stack_type value="ignore" />
+			<duration value="0" />
+			<requirement name="NotHasBuff" target="self" buff="resetEverythingOnEnter" />
+			<effect_group>
+				<triggered_effect trigger="onSelfRespawn" action="ResetPlayerLevel, Mods" target="self" value="11024"/>
+				<triggered_effect trigger="onSelfEnteredGame" action="InventoryTracker, Mods" target="self" />
+				<!-- 
+					Redundant
+				<triggered_effect trigger="onSelfRespawn" action="ModifyStats" stat="HealthMax" target="self" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfRespawn" action="ModifyStats" stat="FoodMax" target="self" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfRespawn" action="ModifyStats" stat="WaterMax" target="self" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfRespawn" action="ModifyStats" stat="StaminaMax"  target="self" operation="set" value="100"/>
+				-->
+			</effect_group>
+		</buff>
+		<buff name="resetEverythingOnDeath" hidden="false" remove_on_death="false" icon='ui_game_symbol_electric_power'>
+			<stack_type value="ignore" />
+			<duration value="0" />
+			<requirement name="NotHasBuff" target="self" buff="resetEverythingOnEnter" />
+			<effect_group>
+				<triggered_effect trigger="onSelfRespawn" action="ResetPlayerLevel, Mods" target="self" value="11024"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff" buff="buffJournalUnlocks"/>
+			</effect_group>
+		</buff>
+	</append>
+</configs>

@@ -1,0 +1,12 @@
+<configs>
+	
+	<!-- No bed rolls-->
+	<remove xpath="/recipes/recipe[@name='bedroll']" />
+
+	<setattribute xpath="/recipes/recipe[@name='resourceGunPowder' and not(@craft_area)]" name="craft_area">campfire</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='resourceGunPowder' and @craft_area='campfire']" name="craft_tool">toolBeaker</setattribute>
+	
+	<set xpath="/recipes/recipe[@name='resourceLockPick']/ingredient[@name='resourceForgedIron']/@name">resourceForgedSteel</set>
+	<set xpath="/recipes/recipe[@name='resourceLockPickBundle']/ingredient[@name='resourceForgedIron']/@name">resourceForgedSteel</set>
+
+</configs>
