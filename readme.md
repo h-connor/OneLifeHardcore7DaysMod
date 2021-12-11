@@ -7,17 +7,7 @@ This mod is intended to be played with all world settings set to default, with t
 * Difficulty set to Insane
 * Backpack deletes on death (This is enforced, but remains as a map icon on death until exiting the game [visual bug])
 
-*This mod may not function properly with most other mods to the wide variety of changes applied.*
-
-### Special Extreme Mode
-
-In a local game with more than one player, if all players die within 5 seconds of eachother, the entire world is erased.
-
-This mode does not activate if there is only one player in the world. More than one player must be online.
-
-If one person dies, the others must survive!
-
-Timer resets itself anytime a player dies (including if the same player dies again).
+**This mod may not function properly with most other mods to the wide variety of changes applied.**
 
 ## On Death
 
@@ -42,6 +32,8 @@ Timer resets itself anytime a player dies (including if the same player dies aga
 * Gunpowder recipe now requires crafting table and beaker
 * Bears can climb ladders
 * Reduced bear hp by 20%, and zombie bear hp by 30%
+* Slightly reduced the probability of the spawnrate of birds nests
+
 
 ### Balancing
 
@@ -62,6 +54,3 @@ The following adjustments have been made to the player and world for skill balan
 * Increased the breakchance of all safes by an additional 5-24% depending on the chest (Secure Hardened chests are 99%)
 * Environments are harsher, with more slightly harsher temperatures !
 * Every biome has a 1% chance for an *extremely* harsh condition
-* Slightly reduced the probability of the spawnrate of birds nests
-
-The following adjustments have been made to skills
