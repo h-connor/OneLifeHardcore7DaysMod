@@ -9,8 +9,8 @@
 	
 	<!-- lockpick break chance -->
 	
-	<set xpath="/blocks/block[@name='cntWallSafe']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.9</set>
-	<set xpath="/blocks/block[@name='cntGunSafe']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.95</set>
-	<set xpath="/blocks/block[@name='cntHardenedChestSecure']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.99</set>
-	<set xpath="/blocks/block[@name='cntLootChestHero']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.8</set>
+	<set xpath="/blocks/block[@name='cntWallSafe']/property[@name='LockPickBreakChance']/@value">0.9</set>
+	<set xpath="/blocks/block[@name='cntGunSafe']/property[@name='LockPickBreakChance']/@value">0.95</set>
+	<set xpath="/blocks/block[@name='cntHardenedChestSecure']/property[@name='LockPickBreakChance']/@value">0.99</set>
+	<set xpath="/blocks/block[@name='cntLootChestHero']/property[@name='LockPickBreakChance']/@value">0.8</set>
 </configs>

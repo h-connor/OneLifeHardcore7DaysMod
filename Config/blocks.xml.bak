@@ -8,7 +8,7 @@
 	<set xpath="/blocks/block[@name='rScrapIronPlateMine']/property[@name='TriggerDelay']/@value">0.375</set>
 	
 	<!-- lockpick break chance -->
-	<set xpath="/blocks/block[@name='cntHardenedChestInsecure']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.95</set>
+	
 	<set xpath="/blocks/block[@name='cntWallSafe']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.9</set>
 	<set xpath="/blocks/block[@name='cntGunSafe']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.95</set>
 	<set xpath="/blocks/block[@name='cntHardenedChestSecure']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.99</set>

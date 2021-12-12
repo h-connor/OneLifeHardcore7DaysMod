@@ -4,6 +4,14 @@ One life is a hardcore mod where you test yourself to see how long you could sur
 
 Contrast to most other dead is dead mods, this one resets most things from death.
 
+**WARNING**
+
+Be careful not to run this mod on your normal worlds. 
+
+To know whether or not this mod is running, press `F1` when running the game. 
+You should see `Yellow` text printed somewhere in the console saying: `WRN ONELINE: Active!`. 
+This verifies that the mod is active.
+
 ## Intention
 
 This mod is intended to be played with all world settings set to default, with the exception of;
@@ -54,7 +62,7 @@ The following adjustments have been made to the player and world for skill balan
 
 * Reduced the default number of backpack slots to 22
 * Increased the maximum bag capacity to 10 items per row (50 slots, instead of 45)
-* Pack mule additional backpack slots changed from 3/6/10/14/18 to 3/7/11/16/23
+* Pack mule additional backpack slots changed from 3/6/10/14/18 to 3/7/11/16/23 (NOTE: The perks description does not say this)
 * Lock picks now require ForgedSteel to craft instead of ForgedIron
 * Lock Picking skills % lower chance to break lockpicks has improved from 10/20/30 to 20/40/60
 * Increased the breakchance of all safes by an additional 5-24% depending on the chest (Secure Hardened chests are 99%)
