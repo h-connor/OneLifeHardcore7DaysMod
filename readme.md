@@ -8,7 +8,7 @@ Contrast to most other dead is dead mods, this one resets most things from death
 
 Be careful not to run this mod on your normal worlds. 
 
-To know whether or not this mod is running, press `F1` when running the game. 
+To know whether or not this mod is running, press `F1` when first starting or continueing a world. 
 You should see `Yellow` text printed somewhere in the console saying: `WRN ONELINE: Active!`. 
 This verifies that the mod is active.
 

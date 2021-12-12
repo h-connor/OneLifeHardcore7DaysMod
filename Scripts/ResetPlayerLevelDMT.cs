@@ -11,9 +11,7 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
 
     public override void Execute(MinEventParams _params)
     {
-        Log.Out("A user has died.");
-        Log.Out("[relog] A user has died.");
-        Log.Out("[relog] A user has died.");
+        Log.Out("ONELIFE: Death.");
 
         if (IsErasingWorld())
             for (int i = 0; i < this.targets.Count; i++)
@@ -27,17 +25,9 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
 
                         // Force SAVE the world.
                         // Note that, this does not save the player's new state
-                        // TODO use gamemanager saves instead
-                        //entity.world.Save();
-                        //entity.world.SaveWorldState();
-                        //GameManager.Instance.SaveAndCleanupWorld();
                         GameManager.Instance.SaveWorld();
-                        Log.Out("Saved the world!");
                         GameManager.Instance.SaveLocalPlayerData();
-                        Log.Out("Saved the player!");
-                        // GamePrefs.Save ??
-                        // SaveUserIni
-
+                        Log.Out("ONELIFE: Force saved the world.");
                     }
                     catch (Exception e)
                     {
@@ -164,7 +154,7 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         {
             if (!player.inventory.AddItem(new ItemStack(ItemClass.GetItem(i), 1)))
             {
-                ConsoleMessageMOD.ErrorMessage("Could not add item to inventory.");
+                ConsoleMessageMOD.ErrorMessage("OneLife: Could not add item to inventory.");
             }
         }
 
@@ -173,7 +163,7 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
             Block.nameIdMapping.GetIdForName("keystoneBlock")
             ), 1)))
         {
-            ConsoleMessageMOD.ErrorMessage("Could not add item to inventory.");
+            ConsoleMessageMOD.ErrorMessage("OneLife: Could not add item to inventory.");
         }
 
         player.saveInventory = player.inventory;
@@ -199,34 +189,10 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         }
     }
 
-    // Saves the players new stats to the game (Cannot rage quit)
-    private void SaveStatReset()
-    {
-        // Crashes the game
-        //XmlDocument doc = new XmlDocument();
-       // doc.Load("/.../.../.../Data/Config/entityclasses.xml");
-
-        //XmlReader reader = XmlReader.Create(new System.IO.StringReader(doc));
-        //XmlNode entity_player = doc.SelectSingleNode("//entity_classes/entity_class[@name='playerMale']");
-
-        /*if (entity_player == null)
-        {
-            Log.Out("Could not force save the game.");
-            Log.Out("Please assure this modlet is in the correct folder path.");
-            return;
-        }
-
-        foreach (XmlNode node in entity_player)
-        {
-          //  if (innerNode["effect_group"])
-        }*/
-    }
-
     // Obtained from Hardcore DMT mod by KhaineGB => Map Clear method
     private void ClearMapChunkDatabase(MapChunkDatabase mapDatabase)
     {
         const BindingFlags _NonPublicFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-        Log.Out("Clearing player map chunk database...");
 
         // The map chunk data is in private instance fields in the base type
         var type = typeof(MapChunkDatabase).BaseType;
@@ -242,8 +208,6 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         var dirty = (Dictionary<int, bool>)type.GetField("dirty", _NonPublicFlags).GetValue(mapDatabase);
         if (dirty != null)
             dirty.Clear();
-
-        Log.Out("Player map chunk database cleared.");
     }
 
     public override bool ParseXmlAttribute(XmlAttribute _attribute)
