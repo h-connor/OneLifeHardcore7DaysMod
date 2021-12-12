@@ -134,12 +134,20 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         }
 
         // --- Stat reset --- \\
-        // This is mainly written in the XML files to assure the values are kept this way.
         player.Stats.ResetStats();
-        player.Stats.Health = new Stat(player, 100, 100);
-        player.Stats.Stamina = new Stat(player, 75, 100);
-        player.Stats.Food = new Stat(player, 75, 100);
-        player.Stats.Water = new Stat(player, 75, 100);
+        player.Stats.Health.OriginalValue = 100;
+        player.Stats.Health.OriginalMax = 100;
+        player.Stats.Health.ResetAll();
+        player.Stats.CoreTemp.ResetAll();
+        player.Stats.Stamina.OriginalValue = 75;
+        player.Stats.Stamina.OriginalMax = 100;
+        player.Stats.Stamina.ResetAll();
+        player.Stats.Water.OriginalValue = 75;
+        player.Stats.Water.OriginalMax = 100;
+        player.Stats.Water.ResetAll();
+        player.Stats.Food.OriginalValue = 75;
+        player.Stats.Food.OriginalMax = 100;
+        player.Stats.Food.ResetAll();
 
         // FIXME doesn't do anything? Might be for the map itself
         player.world.ObjectOnMapRemove(EnumMapObjectType.Backpack); // force remove backpack
@@ -176,6 +184,7 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         if (player.Buffs.ActiveBuffs != null)
         {
             player.Buffs.ActiveBuffs.Clear();
+            player.SetDroppedBackpackPosition(Vector3i.zero);
         }
 
         // Player starts game bleeding

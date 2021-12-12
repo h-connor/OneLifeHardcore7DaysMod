@@ -14,8 +14,7 @@ public class MinEventActionInventoryTracker : MinEventActionRemoveBuff
 {
     public override void Execute(MinEventParams _params)
     {
-        Log.Out("Running!!!");
-        Log.Out("Running!!!");
+        Log.Warning("ONELIFE: Active!");
 
         if (_params.Self is EntityPlayerLocal)
         {
@@ -130,7 +129,6 @@ public class TrackingSystemMOD : MonoBehaviour
         WaitForSeconds waiter = new WaitForSeconds(DESTROYING_INTERVAL);
         List<EntityPlayer> playerList = GameManager.Instance.World.GetPlayers();
         List<BlockInfo> destroyedBlocks = new List<BlockInfo>();
-        Log.Out("Players: " + playerList.Count.ToString());
 
         while (runningBlockDestroyer)
         {
@@ -139,16 +137,10 @@ public class TrackingSystemMOD : MonoBehaviour
             // Checking for all players
             foreach (EntityPlayer player in playerList)
             {
-                Log.Out("Running the block destroyer");
-
                 foreach (BlockInfo block in BlocksToBeDestroyed)
                 {
-                    // This is NULL
-                    //Log.Out((GameManager.Instance.World.GetChunkFromWorldPos(xPos, yPos, zPos) == null).ToString());
-                    //DeleteBlock(id, xPos, yPos, zPos);
                     if (player.world.GetChunkFromWorldPos(block.x, block.y, block.z) != null)
                     {
-                        Log.Out("Removing a block!");
                         DeleteBlock(block.id, block.x, block.y, block.z, player.world);
                         destroyedBlocks.Add(block);
                     }
@@ -183,8 +175,15 @@ public class TrackingSystemMOD : MonoBehaviour
 
         // Setup the items that we would like to delete when the player dies
         // We will use the block ID instead of the names for efficiency
-        string[] deleteItems = { "cntSecureStorageChest"
-                                
+        string[] deleteItems = { 
+            // Craftable storage types
+            "cntSecureStorageChest", "cntWoodFurnitureBlockVariantHelper",  "cntDeskSafe", "cntWallSafe", "cntGunSafe", "cntGreenDrawerSecure",
+
+            // Craftable station types
+            "campfire", "Workstation", "forge", "chemistryStation", "cementMixer", "generatorbank"
+
+            // Misc types
+            "keystoneBlock"
         };
         int[] ids = new int[deleteItems.Length];
 
@@ -212,8 +211,6 @@ public class TrackingSystemMOD : MonoBehaviour
     // Chests, fires, etc .. [Anything that can have items in it]
     public void EraseWorldParts(bool initRun = false)
     {
-        Log.Out("Erasing the world parts");
-
         try
         {
             if (initRun)
@@ -429,7 +426,6 @@ public class TrackingSystemMOD : MonoBehaviour
     {
         // Setup reflection of private variables
         var type = typeof(PlayerAction); 
-
         if (reflectionBindingsField == null)
             reflectionBindingsField = type.GetField("bindings", _NonPublicFlags);
         if (reflectionDeviceField == null)
@@ -455,10 +451,22 @@ public class TrackingSystemMOD : MonoBehaviour
         BlockValue block = new BlockValue(0); // Replace it with air
         List<BlockChangeInfo> blocks = new List<BlockChangeInfo>();
 
-        // Delete blocks contents
-        Block replacedBlock = world.GetBlock(x, y, z).Block;
-        Log.Out(replacedBlock.itemsToDrop.ToString());
-        replacedBlock.Properties.Clear();
+        // Storage items contents are stored as TileEntities in WorldChunks
+        // The block itself does not map to this
+        // So we need to get the world chunk and do this the hard way
+        // Special thanks to Kanaverum, Soleil Plein, and mgreter for direction on this portion
+        if (world.GetChunkFromWorldPos(new Vector3i(x, y, z)) is Chunk worldChunk)
+        {
+            TileEntity entity = world.GetTileEntity(worldChunk.ClrIdx, new Vector3i(x, y, z));
+            if (entity != null)
+            {
+                Log.Out("Not null!!");
+                if (entity is TileEntityLootContainer)
+                {
+                    ((TileEntityLootContainer)entity).SetEmpty();
+                }
+            }
+        }
 
         blocks.Add(new BlockChangeInfo(x, y, z, block, true));
         world.SetBlocksRPC(blocks);

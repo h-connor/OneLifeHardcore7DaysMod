@@ -1,3 +1,5 @@
 <configs>
 	<remove xpath="/lootcontainers/lootgroup/item[@name='bedroll']" />
+	
+	<!-- ootcontainer id="4" count="0" size="8,9" destroy_on_close="false" sound_open="UseActions/open_backp -->
 </configs>

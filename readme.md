@@ -5,7 +5,6 @@
 This mod is intended to be played with all world settings set to default, with the exception of;
 
 * Difficulty set to Insane
-* Backpack deletes on death (This is enforced, but remains as a map icon on death until exiting the game [visual bug])
 
 **This mod may not function properly with most other mods due to the wide variety of changes applied.**
 
@@ -13,11 +12,14 @@ This mod is intended to be played with all world settings set to default, with t
 
 `` You got one life! Say goodbye!``
 
-* Your chests, campfires, vehicles, landclaim blocks, forges, workbenches, etc ...,  are removed by customly made block deletion
+* A variety of items of are removed upon death, including their contents
+	* Craftable Storage: chests, wood furniture blocks, desk safes, wall safes, gun safes, drawers
+	* Craftable Stations: campfires, workstations, forges, chemistry stations, bank generators
+	* Misc blocks: Landclaims
 * Levels are reset. Deficit is removed; it wouldn't make sense anyway.
 * Map exploration is reset, with waypoints removed
-* Skill points are reset
-* Stats are reset
+* Skill points & Perks are reset
+* Stats (Hp/Mana/Food/Water) are reset
 * Quests & Faction are reset, the first quest in the game is given back to the player
 * Journal is completely reset
 * Backpack is deleted on death (Enforced)
@@ -27,7 +29,6 @@ This mod is intended to be played with all world settings set to default, with t
 
 ## Misc Changes
 
-// * Night zombies no longer die out on morning rise (untested, possibly unfunctional).
 * Cannot craft bed rolls. First quest has been slightly adjusted to be completable. No respawning at known locations!
 * Gunpowder recipe now requires crafting table and beaker
 * Bears can climb ladders
@@ -44,13 +45,13 @@ No longer, are any skill points wasted. Nobody said balancing has to make the ga
 The following adjustments have been made to the player and world for skill balancing
 
 * Reduced the default number of backpack slots to 22
-* Increased the maximum bag capacity to allow an extra row
+* Increased the maximum bag capacity to 10 items per row (50 slots, instead of 45)
 * Pack mule additional backpack slots changed from 3/6/10/14/18 to 3/7/11/16/23
 * Lock picks now require ForgedSteel to craft instead of ForgedIron
+* Lock Picking skills % lower chance to break lockpicks has improved from 10/20/30 to 20/40/60
+* Increased the breakchance of all safes by an additional 5-24% depending on the chest (Secure Hardened chests are 99%)
 * Land mines damage has been reduced by 10%
 * Increased the radius of the explosion of landmines by 33%
 * Reduced the trigger delay of landmines by 25%
-* Lock Picking skills % lower chance to break lockpicks has improved from 10/20/30 to 20/40/60
-* Increased the breakchance of all safes by an additional 5-24% depending on the chest (Secure Hardened chests are 99%)
-* Environments are harsher, with more slightly harsher temperatures !
-* Every biome has a 1% chance for an *extremely* harsh condition
+* Temperatures of biomes are slightly harsher
+* Every biome has a 2% chance for *extremely* harsh temperatures. Be prepared or prey to RNG gods daily.
