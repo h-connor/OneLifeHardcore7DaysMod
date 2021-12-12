@@ -83,8 +83,8 @@ The following adjustments have been made to the player and world for skill balan
 * Run the program DMTViewer.exe
 * Go to `Settings` located in the top left corner
 * In the settings, set the Mod Folder to the Location of DMT's Mods folder. 
-	** When you download DMT, it should be in your Downloads folder
-	** An example of my location: `C:\Program Files (x86)\Steam\steamapps\common\DMT\Mods`
+	* When you download DMT, it should be in your Downloads folder
+	* An example of my location: `C:\Program Files (x86)\Steam\steamapps\common\DMT\Mods`
 * Now, set the Game Locations path to the path of your 7 Days To Die game
-	** An example of my location: `C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die/`
+	* An example of my location: `C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die/`
 * Finally, check on the `OneLife Hardcore` mod and click **Build**. Voila, the mod should now be active when you play the game.
