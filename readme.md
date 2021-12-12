@@ -71,3 +71,20 @@ The following adjustments have been made to the player and world for skill balan
 * Reduced the trigger delay of landmines by 25%
 * Temperatures of biomes are slightly harsher
 * Every biome has a 2% chance for *extremely* harsh temperatures. Be prepared or prey to RNG gods daily.
+
+## How to Install
+
+* Close 7 days to die if it is currently running.
+* Download and unzip the mod from the main branch.
+	* This mod uses C# scripting that must be compiled with the game. We use DMT. 
+* Install DMT here https://github.com/HAL-NINE-THOUSAND/DMT
+	* There is a link on the page to download the program. Unzip the download.
+* Place our mod in DMT's Mods folder.
+* Run the program DMTViewer.exe
+* Go to `Settings` located in the top left corner
+* In the settings, set the Mod Folder to the Location of DMT's Mods folder. 
+	** When you download DMT, it should be in your Downloads folder
+	** An example of my location: `C:\Program Files (x86)\Steam\steamapps\common\DMT\Mods`
+* Now, set the Game Locations path to the path of your 7 Days To Die game
+	** An example of my location: `C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die/`
+* Finally, check on the `OneLife Hardcore` mod and click **Build**. Voila, the mod should now be active when you play the game.
