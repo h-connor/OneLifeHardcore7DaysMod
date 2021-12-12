@@ -52,7 +52,7 @@ NOTE: World day does not change upon death. So the more you die, the harder it g
 * Slightly reduced the spawnrate of birds nests
 
 
-### Balancing
+## Balancing
 
 The goal of this is to make all skills relevant for survival. 
 Things have been balanced to accomodate for the necessesity of these skills.
