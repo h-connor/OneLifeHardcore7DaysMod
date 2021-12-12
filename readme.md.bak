@@ -8,7 +8,7 @@ Contrast to most other dead is dead mods, this one resets most things from death
 
 Be careful not to run this mod on your normal worlds. 
 
-To know whether or not this mod is running, press `F1` when running the game. 
+To know whether or not this mod is running, press `F1` when first starting or continueing a world. 
 You should see `Yellow` text printed somewhere in the console saying: `WRN ONELINE: Active!`. 
 This verifies that the mod is active.
 
@@ -52,7 +52,7 @@ NOTE: World day does not change upon death. So the more you die, the harder it g
 * Slightly reduced the spawnrate of birds nests
 
 
-### Balancing
+## Balancing
 
 The goal of this is to make all skills relevant for survival. 
 Things have been balanced to accomodate for the necessesity of these skills.
@@ -71,3 +71,20 @@ The following adjustments have been made to the player and world for skill balan
 * Reduced the trigger delay of landmines by 25%
 * Temperatures of biomes are slightly harsher
 * Every biome has a 2% chance for *extremely* harsh temperatures. Be prepared or prey to RNG gods daily.
+
+## How to Install
+
+* Close 7 days to die if it is currently running.
+* Download and unzip the mod from the main branch.
+	* This mod uses C# scripting that must be compiled with the game. We use DMT. 
+* Install DMT here https://github.com/HAL-NINE-THOUSAND/DMT
+	* There is a link on the page to download the program. Unzip the download.
+* Place our mod in DMT's Mods folder.
+* Run the program DMTViewer.exe
+* Go to `Settings` located in the top left corner
+* In the settings, set the Mod Folder to the Location of DMT's Mods folder. 
+	* When you download DMT, it should be in your Downloads folder
+	* An example of my location: `C:\Program Files (x86)\Steam\steamapps\common\DMT\Mods`
+* Now, set the Game Locations path to the path of your 7 Days To Die game
+	* An example of my location: `C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die/`
+* Finally, check on the `OneLife Hardcore` mod and click **Build**. Voila, the mod should now be active when you play the game.

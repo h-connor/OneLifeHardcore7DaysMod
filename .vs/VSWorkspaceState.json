@@ -1,12 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Config",
-    "\\Scripts",
-    "\\UIAtlases",
-    "\\UIAtlases\\ItemIconAtlas",
-    "\\UIAtlases\\UIAtlas"
+    "\\Scripts"
   ],
-  "SelectedNode": "\\Scripts\\ZombieOverrider.cs",
+  "SelectedNode": "\\readme.md",
   "PreviewInSolutionExplorer": false
 }
