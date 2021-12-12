@@ -1,5 +1,5 @@
 <configs>
-	<set xpath="progression/perk[@name='perkLockPicking']/effect_group/passive_effect[@name='LockPickBreakChance']/@value">".2,.6"</set>
+	<set xpath="/progression/perks//perk[@name='perkLockPicking']/effect_group/passive_effect[@name='LockPickBreakChance']/@value">.2,.6</set>
 
-	<set xpath="progression/perk[@name='perkPackMule']/effect_group/passive_effect[@name='CarryCapacity']/@value">"3,7,11,16,23"</set>
+	<set xpath="/progression/perks/perk[@name='perkPackMule']/effect_group/passive_effect[@name='CarryCapacity']/@value">3,7,11,16,23</set>
 </configs>

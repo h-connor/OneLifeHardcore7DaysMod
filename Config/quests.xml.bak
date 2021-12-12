@@ -3,6 +3,8 @@
  <!-- Changing bedroll quest to make it completable [Just collecting fibers] -->
  <remove xpath="/quests/quest[@id='quest_BasicSurvival1']/objective[@type='Craft']" />
  <remove xpath="/quests/quest[@id='quest_BasicSurvival1']/objective[@id='bedroll']" />
- <!-- <setattribute xpath="/quests/quest[@id='quest_BasicSurvival1']"/objective[@id='bedroll']></setattribute> -->
 
+<!-- Trader quests -->
+  <remove xpath="/quests/quest[@id='quest_BasicSurvival8']/reward[@id='quest_whiteRiverCitizen1']" />
+  <remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1']" />
 </config>

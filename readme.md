@@ -1,5 +1,9 @@
 # About OneLife Hardcore
 
+One life is a hardcore mod where you test yourself to see how long you could survive.
+
+Contrast to most other dead is dead mods, this one resets most things from death.
+
 ## Intention
 
 This mod is intended to be played with all world settings set to default, with the exception of;
@@ -8,13 +12,15 @@ This mod is intended to be played with all world settings set to default, with t
 
 **This mod may not function properly with most other mods due to the wide variety of changes applied.**
 
+NOTE: World day does not change upon death. So the more you die, the harder it gets! Hopefully you set up a base by then to compensate.
+
 ## On Death
 
 `` You got one life! Say goodbye!``
 
 * A variety of items of are removed upon death, including their contents
 	* Craftable Storage: chests, wood furniture blocks, desk safes, wall safes, gun safes, drawers
-	* Craftable Stations: campfires, workstations, forges, chemistry stations, bank generators
+	* Craftable Stations: campfires, work benches, forges, chemistry stations, bank generators
 	* Misc blocks: landclaims
 * Levels are reset. Deficit is removed; it wouldn't make sense anyway.
 * Map exploration is reset, with waypoints removed
@@ -29,11 +35,13 @@ This mod is intended to be played with all world settings set to default, with t
 
 ## Misc Changes
 
-* Cannot craft bed rolls. First quest has been slightly adjusted to be completable. No respawning at known locations!
+* The Grandpa's Forgetting Elixir in the trader now costs 7500 for cheaper perk respecing.
+* Removed the quest that directs you to a trader. You must find them via exploration.
+* Cannot craft bed rolls. First quest has been slightly adjusted to be completable.
 * Gunpowder recipe now requires crafting table and beaker
 * Bears can climb ladders
 * Reduced bear hp by 20%, and zombie bear hp by 30%
-* Slightly reduced the probability of the spawnrate of birds nests
+* Slightly reduced the spawnrate of birds nests
 
 
 ### Balancing

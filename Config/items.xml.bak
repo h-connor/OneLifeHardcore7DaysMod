@@ -1,0 +1,3 @@
+<configs>
+	<set xpath="/entity_classes/entity_class[@name='Backpack']/property[@name='TimeStayAfterDeath']/@value">0</set>
+</configs>

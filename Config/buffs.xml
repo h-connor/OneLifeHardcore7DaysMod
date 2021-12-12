@@ -14,7 +14,7 @@
 	<!--</insertBefore>-->
 	<append xpath="/buffs">
 		<!-- Reset skill points and books read on death -->
-		<buff name="resetEverythingOnEnter" hidden="false" remove_on_death="false" icon='ui_game_symbol_mining'>
+		<buff name="resetEverythingOnEnter" hidden="true" remove_on_death="false" icon='ui_game_symbol_mining'>
 			<stack_type value="ignore" />
 			<duration value="0" />
 			<requirement name="NotHasBuff" target="self" buff="resetEverythingOnEnter" />
@@ -30,7 +30,7 @@
 				-->
 			</effect_group>
 		</buff>
-		<buff name="resetEverythingOnDeath" hidden="false" remove_on_death="false" icon='ui_game_symbol_electric_power'>
+		<buff name="resetEverythingOnDeath" hidden="true" remove_on_death="false" icon='ui_game_symbol_electric_power'>
 			<stack_type value="ignore" />
 			<duration value="0" />
 			<requirement name="NotHasBuff" target="self" buff="resetEverythingOnEnter" />

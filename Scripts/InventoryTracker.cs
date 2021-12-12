@@ -180,7 +180,7 @@ public class TrackingSystemMOD : MonoBehaviour
             "cntSecureStorageChest", "cntWoodFurnitureBlockVariantHelper",  "cntDeskSafe", "cntWallSafe", "cntGunSafe", "cntGreenDrawerSecure",
 
             // Craftable station types
-            "campfire", "Workstation", "forge", "chemistryStation", "cementMixer", "generatorbank",
+            "campfire", "workbench", "forge", "chemistryStation", "cementMixer", "generatorbank",
 
             // Misc types
             "keystoneBlock"//, "autoTurret", "shotgunTurret"
@@ -191,7 +191,7 @@ public class TrackingSystemMOD : MonoBehaviour
         foreach (String item in deleteItems)
         {
             // For some reason the block id mapping is unavailable for the chests and special blocks, so we grab the ID from the more general ItemClass instead
-            ids[index++] = ItemClass.GetItemClass(deleteItems[0]).GetBlock().blockID;
+            ids[index++] = ItemClass.GetItemClass(item).GetBlock().blockID;
         }
 
         deleteItemsIDs = ids;
@@ -301,8 +301,6 @@ public class TrackingSystemMOD : MonoBehaviour
                     // If the interesting block exists at that location, and we are not already looking for it, then lets delete it
                     if (block != INVALID_BLOCK)
                     {
-                        Log.Out("Block is interesting ...");
-
                         // Writing to file
                         // This just saves our state for when we close the game or it crashes
                         storageFile.WriteInterestingBlocks(block);
@@ -440,7 +438,7 @@ public class TrackingSystemMOD : MonoBehaviour
     // Save the currently tracked items to a file for later reference when the game is loaded again
     private void Save()
     {
-
+        storageFile.WriteListOverwriteToBeDeleted(BlocksToBeDestroyed);
     }
 
     private void OnDestroy ()
@@ -497,6 +495,7 @@ public class TrackingSystemMOD : MonoBehaviour
                 }
                     Turrets are players?!
                     NOTE: Turrets will drop the ammo atm
+                    They are not TileEntities. Need to rework a bit for this special case
                 */
             }
         }

@@ -4,4 +4,7 @@
  <remove xpath="/quests/quest[@id='quest_BasicSurvival1']/objective[@type='Craft']" />
  <remove xpath="/quests/quest[@id='quest_BasicSurvival1']/objective[@id='bedroll']" />
 
+<!-- Trader quests -->
+  <remove xpath="/quests/quest[@id='quest_BasicSurvival8']/reward[@type='Quest']" />
+  <remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1']" />
 </config>

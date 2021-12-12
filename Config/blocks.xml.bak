@@ -5,7 +5,7 @@
 	<!-- mines -->
 	<set xpath="/blocks/block[@name='rScrapIronPlateMine']/property[@name='Explosion.EntityDamage']/@value">248</set>
 	<set xpath="/blocks/block[@name='rScrapIronPlateMine']/property[@name='Explosion.RadiusEntities']/@value">4</set>
-	<set xpath="/blocks/block[@name='rScrapIronPlateMine']/property[@name='TriggerDelayvalue']/@value">0.375</set>
+	<set xpath="/blocks/block[@name='rScrapIronPlateMine']/property[@name='TriggerDelay']/@value">0.375</set>
 	
 	<!-- lockpick break chance -->
 	<set xpath="/blocks/block[@name='cntHardenedChestInsecure']/property[@name='DowngradeBlock']/property[@name='LockPickBreakChance']/@value">0.95</set>

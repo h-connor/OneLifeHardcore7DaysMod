@@ -2,7 +2,7 @@
 	<!-- Add to the buff that does a status check, when first started, so it's always run -->
 	<!--<insertBefore xpath="/buffs/buff[@name='buffStatusCheck01']/effect_group[position()=1]/triggered_effect[position()=1]">-->
 	<!-- -->
-	<append xpath="/buffs">
+	<!--<append xpath="/buffs"> -->
 		<!-- Start buff to reset skill points and books read on death
 		<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="resetEverythingOnEnter">
 			<requirement name="NotHasBuff" target="self" buff="resetEverythingOnEnter" />
