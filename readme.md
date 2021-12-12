@@ -15,7 +15,7 @@ This mod is intended to be played with all world settings set to default, with t
 * A variety of items of are removed upon death, including their contents
 	* Craftable Storage: chests, wood furniture blocks, desk safes, wall safes, gun safes, drawers
 	* Craftable Stations: campfires, workstations, forges, chemistry stations, bank generators
-	* Misc blocks: Landclaims
+	* Misc blocks: landclaims
 * Levels are reset. Deficit is removed; it wouldn't make sense anyway.
 * Map exploration is reset, with waypoints removed
 * Skill points & Perks are reset

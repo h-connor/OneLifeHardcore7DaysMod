@@ -15,11 +15,11 @@ This mod is intended to be played with all world settings set to default, with t
 * A variety of items of are removed upon death, including their contents
 	* Craftable Storage: chests, wood furniture blocks, desk safes, wall safes, gun safes, drawers
 	* Craftable Stations: campfires, workstations, forges, chemistry stations, bank generators
-	* Misc blocks: Landclaims
+	* Misc blocks: landclaims, auto turrets, shotgun turrets
 * Levels are reset. Deficit is removed; it wouldn't make sense anyway.
 * Map exploration is reset, with waypoints removed
-* Skill points are reset
-* Perks are reset
+* Skill points & Perks are reset
+* Stats (Hp/Mana/Food/Water) are reset
 * Quests & Faction are reset, the first quest in the game is given back to the player
 * Journal is completely reset
 * Backpack is deleted on death (Enforced)

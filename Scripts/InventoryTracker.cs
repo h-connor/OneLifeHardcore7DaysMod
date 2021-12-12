@@ -180,10 +180,10 @@ public class TrackingSystemMOD : MonoBehaviour
             "cntSecureStorageChest", "cntWoodFurnitureBlockVariantHelper",  "cntDeskSafe", "cntWallSafe", "cntGunSafe", "cntGreenDrawerSecure",
 
             // Craftable station types
-            "campfire", "Workstation", "forge", "chemistryStation", "cementMixer", "generatorbank"
+            "campfire", "Workstation", "forge", "chemistryStation", "cementMixer", "generatorbank",
 
             // Misc types
-            "keystoneBlock"
+            "keystoneBlock"//, "autoTurret", "shotgunTurret"
         };
         int[] ids = new int[deleteItems.Length];
 
@@ -325,7 +325,12 @@ public class TrackingSystemMOD : MonoBehaviour
     {
         // First check if the guessed position was correct
         // If its not, then lets check for an 'off by x' (If it was slightly off)
-        int guessID = GameManager.Instance.World.GetBlock(guessedPosition.x, guessedPosition.y, guessedPosition.z).Block.blockID;
+        BlockValue blockVal = GameManager.Instance.World.GetBlock(guessedPosition.x, guessedPosition.y, guessedPosition.z);
+
+        if (blockVal.Block == null)
+            return INVALID_BLOCK;
+
+        int guessID = blockVal.Block.blockID;
         BlockInfo firstGuess = IntestingAndNotContained(guessID, guessedPosition.x, guessedPosition.y, guessedPosition.z);
         if (firstGuess != INVALID_BLOCK)
             return firstGuess;
@@ -461,10 +466,38 @@ public class TrackingSystemMOD : MonoBehaviour
             if (entity != null)
             {
                 Log.Out("Not null!!");
-                if (entity is TileEntityLootContainer)
+                if (entity is TileEntityLootContainer lootEntity)
                 {
-                    ((TileEntityLootContainer)entity).SetEmpty();
+                    lootEntity.SetEmpty();
                 }
+
+                else if (entity is TileEntityForge forgeEntity)
+                {
+                    Array.Clear(forgeEntity.GetInput(), 0, forgeEntity.GetInput().Length);
+                    Array.Clear(forgeEntity.GetFuel(), 0, forgeEntity.GetFuel().Length);
+                    forgeEntity.GetOutput().Clear();
+                    forgeEntity.GetMold().Clear();
+                }
+
+                else if (entity is TileEntityWorkstation stationEntity)
+                {
+                    Array.Clear(stationEntity.Tools, 0, stationEntity.Tools.Length);
+                    Array.Clear(stationEntity.Input, 0, stationEntity.Tools.Length);
+                    Array.Clear(stationEntity.Fuel, 0, stationEntity.Tools.Length);
+                    Array.Clear(stationEntity.Output, 0, stationEntity.Tools.Length);
+                }
+
+                /*
+                else if (entity is EntityTurret turretEntity)
+                {
+                    turretEntity.AmmoCount = 0;
+
+                    if (turretEntity.inventory != null)
+                        turretEntity.inventory.Clear();
+                }
+                    Turrets are players?!
+                    NOTE: Turrets will drop the ammo atm
+                */
             }
         }
 
