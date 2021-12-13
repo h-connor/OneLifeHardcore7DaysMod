@@ -180,6 +180,20 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         // Player starts game bleeding
         player.Buffs.AddBuff("triggerBleeding");
 
+        // --- Turrets and Vehicles --- \\
+        // Note: Fairly inefficient
+        /*
+        for (int i = 0; i < GameManager.Instance.World.Entities.list.Count; i++)
+        {
+            EntityVehicle entityVehicle = GameManager.Instance.World.Entities.list[i] as EntityVehicle;
+
+            if (entityVehicle != null && entityVehicle.IsOwner(GameManager.Instance.my))
+            {
+                entityVehicle.Kill();
+            }
+        }
+        */
+
         // Finally, the map clear
         // This is by far the most expensive, so we do this last
         if (player.ChunkObserver != null && player.ChunkObserver.mapDatabase != null)
