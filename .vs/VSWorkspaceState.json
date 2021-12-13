@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Config",
     "\\Scripts"
   ],
-  "SelectedNode": "\\Scripts\\InventoryTracker.cs",
+  "SelectedNode": "\\Config\\entityclasses.xml",
   "PreviewInSolutionExplorer": false
 }

@@ -40,6 +40,8 @@ NOTE: World day does not change upon death. So the more you die, the harder it g
 * Some hidden respawn buffs are removed
 * You are bleeding, and do not have full food or water. Don't waste time!
 * Player is given back starting gear again (Based on Navezgane map)
+* Player is rewarded with all the items required to complete the tutorial, and also given back the rewards from these tutorials.
+	* In other words, you don't start with 0 exp, have 4 skill points, and have all the resources you would have needed to complete the tutorial
 
 ## Misc Changes
 
@@ -50,6 +52,7 @@ NOTE: World day does not change upon death. So the more you die, the harder it g
 * Bears can climb ladders
 * Reduced bear hp by 20%, and zombie bear hp by 30%
 * Slightly reduced the spawnrate of birds nests
+* Land mines damage has been reduced by 20%
 
 
 ## Balancing
@@ -66,8 +69,6 @@ The following adjustments have been made to the player and world for skill balan
 * Lock picks now require ForgedSteel to craft instead of ForgedIron
 * Lock Picking skills % lower chance to break lockpicks has improved from 10/20/30 to 20/40/60
 * Increased the breakchance of all safes by an additional 5-24% depending on the chest (Secure Hardened chests are 99%)
-* Land mines damage has been reduced by 10%
-* Increased the radius of the explosion of landmines by 33%
 * Reduced the trigger delay of landmines by 25%
 * Temperatures of biomes are slightly harsher
 * Every biome has a 2% chance for *extremely* harsh temperatures. Be prepared or prey to RNG gods daily.

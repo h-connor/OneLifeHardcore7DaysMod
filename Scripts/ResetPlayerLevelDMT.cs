@@ -50,37 +50,44 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
 
         // --- Quest Clearing --- \\
 
+        // Clear all active quests
+        if (player.QuestJournal != null && player.QuestJournal.quests != null)
+        {
+            var type = typeof(Quest).BaseType;
+            for (int l = player.QuestJournal.quests.Count - 1; l >= 0; l--)
+            {
+                if (player.QuestJournal.quests[l].CurrentState == Quest.QuestState.InProgress || player.QuestJournal.quests[l].CurrentState == Quest.QuestState.ReadyForTurnIn)
+                {
+                    Quest quest = player.QuestJournal.quests[l];
+                    quest.ResetObjectives();
+
+                    // Need to stop the coroutine that gives the rewards for the quest at a later time
+
+                    quest.ResetToRallyPointObjective();
+                    player.QuestJournal.RemoveQuest(quest);
+                }
+            }
+        }
+
+        // Just some extra re-assurance
         if (player.QuestJournal.quests != null)
         {
             player.QuestJournal.quests.Clear();
-        
         }
 
-        if (player.QuestJournal.sharedQuestEntries != null)
-        {
-            player.QuestJournal.sharedQuestEntries.Clear();
-        }
+        player.QuestJournal.RemoveAllSharedQuests();
 
         if (player.QuestJournal.QuestFactionPoints != null)
         {
             player.QuestJournal.QuestFactionPoints.Clear();
         }
 
-        // Clear all active quests
-        if (player.QuestJournal != null && player.QuestJournal.quests != null)
-        {
-            for (int l = player.QuestJournal.quests.Count - 1; l >= 0; l--)
-            {
-                if (player.QuestJournal.quests[l].CurrentState == Quest.QuestState.InProgress || player.QuestJournal.quests[l].CurrentState == Quest.QuestState.ReadyForTurnIn)
-                {
-                    Quest quest = player.QuestJournal.quests[l];
-
-                    player.QuestJournal.RemoveQuest(quest);
-                }
-            }
-        }
-
         // Give back starting quest
+        // This has an issue as a result of how the game is built
+        // A Coroutine for the rewards may continue to run in the background 
+        // If this occurs, upon completion of the tutorial, players may receive 8 or even 12 skill points instead of 4
+        // So, we will instead give them back all the stuff they would do in the tutorial instead
+        /*
         if (player.QuestJournal != null)
         {
             const string startingQuest = "quest_BasicSurvival1";
@@ -90,6 +97,7 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
             player.QuestJournal.ActiveQuest = myQuest;
             player.QuestJournal.TrackedQuest = myQuest;
         }
+        */
 
         // --- Spawns Clearing --- \\
         // Encase somehow they placed spawns
@@ -143,8 +151,8 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         player.world.ObjectOnMapRemove(EnumMapObjectType.Backpack); // force remove backpack
         player.world.ObjectOnMapRemove(EnumMapObjectType.LandClaim); // force remove landclaims
         player.world.ObjectOnMapRemove(EnumMapObjectType.StartPoint); // force remove starting point
-        //player.backpackNavObject.
-        // player.world.objectsOnMap.Clear(); // private
+        player.world.ObjectOnMapRemove(EnumMapObjectType.MapMarker); // force remove starting point
+        player.world.ObjectOnMapRemove(EnumMapObjectType.MapQuickMarker); // force remove starting point
 
         // -- Refresh Inventory --- \\
 
@@ -157,6 +165,33 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
                 ConsoleMessageMOD.ErrorMessage("OneLife: Could not add item to inventory.");
             }
         }
+
+        // Add the resources the player would get from doing the tutorial to their bag
+        string[] bagItems = { "resourceYuccaFibers", "resourceWood", "resourceRockSmall", "resourceFeather" };
+        int[] quantityItems = { 25, 23, 8, 1 };
+        for (int i = 0; i < bagItems.Length; i++)
+        {
+            string item = bagItems[i];
+            int quantity = quantityItems[i];
+
+            if (!player.bag.AddItem(new ItemStack(ItemClass.GetItem(item), quantity)))
+            {
+                ConsoleMessageMOD.ErrorMessage("OneLife: Could not add item to inventory.");
+            }
+        }
+
+        // Handle XP from tutorial
+        int[] tutXp = { 50, 50, 50, 50, 50, 50, 50, 50 };
+        int tot_xp_bonus = 0;
+
+        foreach (int i in tutXp)
+            tot_xp_bonus += i;
+
+        player.Progression.ExpToNextLevel -= tot_xp_bonus;
+
+        // Rewarding the skill points from tutorial
+        player.Progression.SkillPoints = 4;
+        player.Progression.ResetProgression(true); // For saving the result
 
         // Land claim block
         if (!player.inventory.AddItem(new ItemStack(new ItemValue(
@@ -182,17 +217,36 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
 
         // --- Turrets and Vehicles --- \\
         // Note: Fairly inefficient
-        /*
+        // Does not work
+        // This likely only works if you spawn near the vehicles or turrets (Hence why im leaving it here)
+        // The problem may be that the entities aren't loaded in the map if you aren't near them
+        string playerID = Platform.UserProfiles.PrimaryUser.PlayerId;
+        // Log.Out("Player: " + playerID);
         for (int i = 0; i < GameManager.Instance.World.Entities.list.Count; i++)
         {
-            EntityVehicle entityVehicle = GameManager.Instance.World.Entities.list[i] as EntityVehicle;
+            Entity entity = GameManager.Instance.World.Entities.list[i];
 
-            if (entityVehicle != null && entityVehicle.IsOwner(GameManager.Instance.my))
+            if (entity is EntityVehicle entityVehicle) // Steam ID
             {
-                entityVehicle.Kill();
+                // Log.Out("Vehicle: " + entityVehicle.GetOwner());
+                // Log.Out("Vehicle: " + entityVehicle.GetVehicle().OwnerId);
+                if (entityVehicle.IsOwner(playerID))
+                {
+                    entityVehicle.transform.Translate(0, -5000, 0); // Didn't see an easy way to remove the inventory, so now the dropped loot is just unaquirable until it despawns
+                    entityVehicle.Kill();
+                }
+            }
+            else if (entity is EntityTurret entityTurret)
+            {
+                // Log.Out("Vehicle: " + entityTurret.OwnerID);
+                if (entityTurret.OwnerID == playerID)
+                {
+                    entityTurret.AmmoCount = 0;
+                    entityTurret.InitInventory(); // Removes the previous inventory
+                    entityTurret.Kill(DamageResponse.New(true));
+                }
             }
         }
-        */
 
         // Finally, the map clear
         // This is by far the most expensive, so we do this last
