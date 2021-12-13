@@ -1,3 +1,5 @@
+This is the same thing as readme.md. Some websites did not support markdown files.
+
 # About OneLife Hardcore
 
 One life is a hardcore mod where you test yourself to see how long you could survive.
@@ -58,7 +60,7 @@ NOTE: World day does not change upon death. So the more you die, the harder it g
 ## Balancing
 
 The goal of this is to make all skills relevant for survival. 
-Things have been balanced to accommodate for the necessity of these skills.
+Things have been balanced to accomodate for the necessesity of these skills.
 No longer, are any skill points wasted. Nobody said balancing has to make the game easier ...
 
 The following adjustments have been made to the player and world for skill balancing
