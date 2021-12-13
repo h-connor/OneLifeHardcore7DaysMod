@@ -76,6 +76,7 @@ The following adjustments have been made to the player and world for skill balan
 ## How to Install
 
 * Close 7 days to die if it is currently running.
+* Disable Anti-Cheat on 7 days to die (Turn of EACEnabled on steam launcher)
 * Download and unzip the mod from the main branch.
 	* This mod uses C# scripting that must be compiled with the game. We use DMT. 
 * Install DMT here https://github.com/HAL-NINE-THOUSAND/DMT
