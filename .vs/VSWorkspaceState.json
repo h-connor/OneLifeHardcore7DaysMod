@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Config",
     "\\Scripts"
   ],
-  "SelectedNode": "\\readme.md",
+  "SelectedNode": "\\Config\\entityclasses.xml",
   "PreviewInSolutionExplorer": false
 }

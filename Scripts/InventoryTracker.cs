@@ -450,7 +450,7 @@ public class TrackingSystemMOD : MonoBehaviour
     // Special thanks to Kanaverum & StompyNZ for the Discord aid on where to delete blocks
     private void DeleteBlock(int id, int x, int y, int z, World world)
     {
-        Log.Out("Deleting a block!");
+        Log.Out("ONELIFE: Deleting a block!");
         BlockValue block = new BlockValue(0); // Replace it with air
         List<BlockChangeInfo> blocks = new List<BlockChangeInfo>();
 
@@ -463,7 +463,6 @@ public class TrackingSystemMOD : MonoBehaviour
             TileEntity entity = world.GetTileEntity(worldChunk.ClrIdx, new Vector3i(x, y, z));
             if (entity != null)
             {
-                Log.Out("Not null!!");
                 if (entity is TileEntityLootContainer lootEntity)
                 {
                     lootEntity.SetEmpty();

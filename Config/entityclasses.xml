@@ -12,7 +12,7 @@
 	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='ExpDeficitMaxPercentage']/@value">0</set>
 	
 	<!-- respawn stats -->
-	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/triggered_effect[@buff='buffStatusCheck01,buffStatusCheck02,buffPerkAbilityUpdate,buffNearDeathTraumaTrigger,buffDeathFoodDrinkAdjust']/@buff">buffStatusCheck01,buffStatusCheck02,buffPerkAbilityUpdate,buffNearDeathTraumaTrigger,buffDeathFoodDrinkAdjust,resetEverythingOnDeath</set>
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/triggered_effect[@buff='buffStatusCheck01,buffStatusCheck02,buffPerkAbilityUpdate,buffNearDeathTraumaTrigger,buffDeathFoodDrinkAdjust']/@buff">buffStatusCheck01,buffStatusCheck02,buffPerkAbilityUpdate,buffNearDeathTraumaTrigger,buffDeathFoodDrinkAdjust,resetEverythingOnEnter,resetEverythingOnDeath</set>
 	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/triggered_effect[@buff='buffStatusCheck01,buffStatusCheck02']/@buff">buffStatusCheck01,buffStatusCheck02,resetEverythingOnEnter,resetEverythingOnDeath</set>
 	
 	<!-- Misc balancing -->
