@@ -155,6 +155,8 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         player.world.ObjectOnMapRemove(EnumMapObjectType.MapQuickMarker); // force remove starting point
 
         // -- Refresh Inventory --- \\
+        player.inventory.Clear();
+        player.bag.Clear();
 
         // All starting items aside from land claim
         string[] startingGear = { "drinkJarBoiledWater", "foodCanChili", "medicalFirstAidBandage", "meleeToolTorch", "noteDuke01" };
