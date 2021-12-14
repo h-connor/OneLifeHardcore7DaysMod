@@ -34,7 +34,7 @@ NOTE: World day does not change upon death. So the more you die, the harder it g
 * Map exploration is reset, with waypoints removed
 * Skill points & Perks are reset
 * Stats (Hp/Mana/Food/Water) are reset
-* Quests & Faction are reset, the first quest in the game is given back to the player
+* Quests & Faction are reset
 * Journal is completely reset
 * Backpack is deleted on death (Enforced)
 * Some hidden respawn buffs are removed
