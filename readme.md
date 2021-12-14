@@ -28,7 +28,7 @@ NOTE: World day does not change upon death. So the more you die, the harder it g
 
 * A variety of items of are removed upon death, including their contents
 	* Craftable Storage: chests, wood furniture blocks, desk safes, wall safes, gun safes, drawers
-	* Craftable Stations: campfires, work benches, forges, chemistry stations, bank generators
+	* Craftable Stations: campfires, work benches, forges, chemistry stations, cement mixers, bank generators
 	* Misc blocks: landclaims
 * Levels are reset. Deficit is removed; it wouldn't make sense anyway.
 * Map exploration is reset, with waypoints removed
