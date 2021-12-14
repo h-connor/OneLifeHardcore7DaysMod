@@ -155,6 +155,8 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         player.world.ObjectOnMapRemove(EnumMapObjectType.MapQuickMarker); // force remove starting point
 
         // -- Refresh Inventory --- \\
+        player.inventory.Clear();
+        player.bag.Clear();
 
         // All starting items aside from land claim
         string[] startingGear = { "drinkJarBoiledWater", "foodCanChili", "medicalFirstAidBandage", "meleeToolTorch", "noteDuke01" };
@@ -206,11 +208,7 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         // --- Block Clearing --- \\
 
         // --- Misc Clearing --- \\
-        if (player.Buffs.ActiveBuffs != null)
-        {
-            player.Buffs.ActiveBuffs.Clear();
-            player.SetDroppedBackpackPosition(Vector3i.zero);
-        }
+        player.SetDroppedBackpackPosition(Vector3i.zero);
 
         // Player starts game bleeding
         player.Buffs.AddBuff("triggerBleeding");
