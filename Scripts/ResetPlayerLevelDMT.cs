@@ -206,11 +206,7 @@ public class MinEventActionResetPlayerLevel : MinEventActionRemoveBuff
         // --- Block Clearing --- \\
 
         // --- Misc Clearing --- \\
-        if (player.Buffs.ActiveBuffs != null)
-        {
-            player.Buffs.ActiveBuffs.Clear();
-            player.SetDroppedBackpackPosition(Vector3i.zero);
-        }
+        player.SetDroppedBackpackPosition(Vector3i.zero);
 
         // Player starts game bleeding
         player.Buffs.AddBuff("triggerBleeding");

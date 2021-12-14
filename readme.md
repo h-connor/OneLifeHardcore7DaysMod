@@ -64,7 +64,6 @@ No longer, are any skill points wasted. Nobody said balancing has to make the ga
 The following adjustments have been made to the player and world for skill balancing
 
 * Reduced the default number of backpack slots to 22
-* Increased the maximum bag capacity to 10 items per row (50 slots, instead of 45)
 * Pack mule additional backpack slots changed from 3/6/10/14/18 to 3/7/11/16/23 (NOTE: The perks description does not say this)
 * Lock picks now require ForgedSteel to craft instead of ForgedIron
 * Lock Picking skills % lower chance to break lockpicks has improved from 10/20/30 to 20/40/60
